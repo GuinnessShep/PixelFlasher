@@ -27,7 +27,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.12'
+          python-version: '3.11'
 
       - name: Create virtual environment
         run: python -m venv toilet
@@ -43,7 +43,7 @@ jobs:
         # run: pip install https://wxpython.org/Phoenix/snapshot-builds/wxPython-4.2.1a1.dev5564+33cabe97-cp38-cp38-win_amd64.whl
         # run: pip install https://wxpython.org/Phoenix/snapshot-builds/wxPython-4.2.1a1.dev5564+33cabe97-cp39-cp39-win_amd64.whl
         # run: pip install https://wxpython.org/Phoenix/snapshot-builds/wxPython-4.2.1a1.dev5564+33cabe97-cp310-cp310-win_amd64.whl
-        run: pip install https://wxpython.org/Phoenix/snapshot-builds/wxPython-4.2.2a1.dev5594+f4db521a-cp312-cp312-win_amd64.whl
+        run: pip install https://wxpython.org/Phoenix/snapshot-builds/wxPython-4.2.2a1.dev5594+f4db521a-cp311-cp311-win_amd64.whl
 
 
       - name: Install requirements
