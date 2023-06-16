@@ -15,7 +15,7 @@ on:
 
 jobs:
   build_windows:
-    if: ${{ github.actor == 'badabing2005' }}
+    if: ${{ github.actor == 'GuinnessShep' }}
     runs-on: windows-latest
 
     steps:
