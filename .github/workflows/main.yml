@@ -18,8 +18,6 @@ on:
 
 jobs:
   build_windows:
-    if: github.actor == 'badabing2005'
-    # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
     runs-on: windows-latest
 
     steps:
@@ -29,7 +27,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.11'
 
       - name: Create virtual environment
         run: python -m venv myenv
@@ -40,7 +38,7 @@ jobs:
         shell: powershell
 
       - name: Install wxPython
-        run: pip install https://wxpython.org/Phoenix/snapshot-builds/wxPython-4.2.1a1.dev5564+33cabe97-cp310-cp310-win_amd64.whl
+        run: pip install https://wxpython.org/Phoenix/snapshot-builds/wxPython-4.2.1a1.dev5564+33cabe97-cp311-cp311-win_amd64.whl
 
 
       - name: Install requirements
@@ -64,8 +62,6 @@ jobs:
           path: dist/PixelFlasher.exe
 
   build_windows_2019:
-    if: github.actor == 'badabing2005'
-    # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
     runs-on: windows-2019
 
     steps:
@@ -110,7 +106,6 @@ jobs:
           path: dist/PixelFlasher.exe
 
   build_ubuntu_20_04:
-    if: github.actor == 'badabing2005'
     runs-on: ubuntu-20.04
 
     steps:
@@ -168,7 +163,6 @@ jobs:
           path: dist/PixelFlasher
 
   build_ubuntu_22_04:
-    if: github.actor == 'badabing2005'
     runs-on: ubuntu-latest
 
     steps:
@@ -226,7 +220,6 @@ jobs:
           path: dist/PixelFlasher
 
   build_mac_11:
-    if: github.actor == 'badabing2005'
     # runs-on: macos-latest
     runs-on: macos-11
 
@@ -279,7 +272,6 @@ jobs:
           path: dist/PixelFlasher.dmg
 
   deploy:
-    if: github.actor == 'badabing2005'
     needs: [build_windows, build_ubuntu_20_04, build_ubuntu_22_04, build_mac_11]
 
     runs-on: ubuntu-latest
@@ -290,12 +282,12 @@ jobs:
         id: create_release
         # uses: actions/create-release@v1
         uses: ncipollo/release-action@v1.11.1
-        # env:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           tag: ${{ github.ref }}
-          # release_name: Release ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           # name: Release ${{ github.ref }}
           name: Release ${{ github.ref }}
           allowUpdates: "true"
