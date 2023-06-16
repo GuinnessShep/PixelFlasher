@@ -1,7 +1,7 @@
 name: Build for Windows
 
 env:
-  ACTIONS_RUNTIME_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ACTIONS_RUNTIME_TOKEN: ${{ secrets.MY_GITHUB_TOKEN }}
 
 on:
   push:
