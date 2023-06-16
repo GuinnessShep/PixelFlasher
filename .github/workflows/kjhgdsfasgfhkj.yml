@@ -1,7 +1,7 @@
 name: Build for Windows
 
 env:
-  ACTIONS_RUNTIME_TOKEN: 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
+  ACTIONS_RUNTIME_TOKEN: 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
 
 # Controls when the workflow will run
 on:
