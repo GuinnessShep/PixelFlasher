@@ -18,8 +18,6 @@ on:
 
 jobs:
   build_windows:
-    if: ${{ github.actor == 'badabing2005' }}
-    # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
     runs-on: windows-latest
 
     steps:
@@ -29,10 +27,6 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          # python-version: '3.7'
-          # python-version: '3.8'
-          # python-version: '3.9'
-          # python-version: '3.10'
           python-version: '3.12'
 
       - name: Create virtual environment
